@@ -1,0 +1,751 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+*::before, *::after {
+  content: '';
+  position: absolute;
+}
+
+a {
+  text-decoration: none;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+  background: #343A40;
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  position: fixed;
+  background: #000;
+  top: 0;
+  left: 0;
+  height: 3em;
+  width: 100vw;
+  display: none;
+}
+
+.nav__button {
+  background: lime;
+  width: 2.7em;
+  height: 2.7em;
+}
+
+.nav__button--icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: #343A40;
+  height: 2.75rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.menu__item {
+  height: 100%;
+  margin: 0 0.75em;
+  position: relative;
+  width: calc(100% / 6);
+}
+
+.menu__item--link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #e5e5e5;
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 100%;
+  -webkit-transition: .3s linear transform,.3s linear opacity;
+  transition: .3s linear transform,.3s linear opacity;
+  width: 100%;
+}
+
+.menu__item:hover * {
+  opacity: 0.85;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.menu__item::before {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #e5e5e5;
+  bottom: .45em;
+  height: 0.1em;
+  -webkit-transition: .2s ease-in-out width;
+  transition: .2s ease-in-out width;
+  width: 0%;
+}
+
+.menu__item:hover::before {
+  width: 60%;
+}
+
+.header {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background-image: url("../../../assets/img/ratusz-powiat.jpg");
+  border-bottom: 0.3em #e5e5e5 solid;
+  height: 98vh;
+  max-height: auto;
+}
+
+.header__wrapper {
+  -webkit-backdrop-filter: brightness(75%);
+          backdrop-filter: brightness(75%);
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.header__wrapper--heading {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #e5e5e5;
+  font-size: 4.2em;
+  font-style: italic;
+  position: absolute;
+  text-shadow: -12px 0px 15px #000;
+  text-transform: uppercase;
+}
+
+.header__wrapper--address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background: #e5e5e5;
+  border-top: 7px #e5e5e5 solid;
+  border-left: 7px #e5e5e5 solid;
+  bottom: 0;
+  color: #343A40;
+  height: 8em;
+  position: absolute;
+  right: 0;
+  width: 35em;
+}
+
+.header__wrapper--address section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #343A40;
+  height: 100%;
+  -webkit-transition: .2s linear transform,.2s linear font-weight;
+  transition: .2s linear transform,.2s linear font-weight;
+  width: calc(100% / 2);
+}
+
+.header__wrapper--address section i {
+  color: #343A40;
+  display: block;
+  font-size: 1.4em;
+  width: 100%;
+}
+
+.header__wrapper--address section span {
+  color: #343A40;
+  display: block;
+}
+
+.header__wrapper--address section:hover {
+  font-weight: 600;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.main {
+  color: #e5e5e5;
+  min-height: 100vh;
+  margin: 1.5em 0;
+  overflow: hidden;
+  padding: 1.5em 0;
+  position: relative;
+}
+
+.main--price {
+  height: auto;
+  min-height: 70vh;
+  position: relative;
+}
+
+.main--price--heading {
+  color: #343A40;
+  background: #e5e5e5;
+  font-size: 3em;
+  text-align: center;
+}
+
+.main--price--wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  height: 70vh;
+  height: auto;
+  padding: 0.5em;
+  position: relative;
+  width: 100%;
+}
+
+.main--price--wrapper--text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main--price--wrapper--text p {
+  font-size: 1.1em;
+  margin: .5em 0;
+  padding: 0 0.2em;
+}
+
+.main--price--wrapper-img {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/img/taxi-maska.jpg");
+}
+
+.main--offer {
+  height: auto;
+  min-height: 70vh;
+  position: relative;
+}
+
+.main--offer--heading {
+  color: #343A40;
+  background: #e5e5e5;
+  font-size: 3em;
+  text-align: center;
+}
+
+.main--offer--wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  height: 70vh;
+  height: auto;
+  padding: 0.5em;
+  position: relative;
+  width: 100%;
+}
+
+.main--offer--wrapper--text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main--offer--wrapper--text p {
+  font-size: 1.2em;
+  margin: .5em 0;
+  padding: 0 0.2em;
+}
+
+.main--offer--wrapper--text li {
+  margin: 0.5em 0;
+}
+
+.main--offer--wrapper--text strong {
+  font-size: 1.4em;
+  padding: 0 0.3em;
+}
+
+.main--offer--wrapper--img {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/img/taxi-ulica.jpg");
+}
+
+.main--gallery {
+  height: auto;
+  min-height: 70vh;
+}
+
+.main--gallery--heading {
+  color: #343A40;
+  background: #e5e5e5;
+  font-size: 3em;
+  text-align: center;
+}
+
+.main--gallery--wrapper {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5em;
+  height: auto;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  position: relative;
+  width: 70vw;
+}
+
+.main--gallery--wrapper--figure {
+  overflow: hidden;
+  width: 100%;
+}
+
+.main--gallery--wrapper--figure img {
+  -webkit-filter: opacity(0.8) brightness(70%) grayscale(70%);
+          filter: opacity(0.8) brightness(70%) grayscale(70%);
+  -webkit-transition: .2s linear filter,.3s ease-in-out transform;
+  transition: .2s linear filter,.3s ease-in-out transform;
+  width: 100%;
+  cursor: pointer;
+}
+
+.main--gallery--wrapper--figure img:hover {
+  -webkit-filter: opacity(1) brightness(110%) grayscale(0%);
+          filter: opacity(1) brightness(110%) grayscale(0%);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.footer {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/img/ratusz-powiat.jpg");
+  min-height: 90vh;
+  position: relative;
+}
+
+.footer .partners {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background: #343A40;
+  padding: .45em 0;
+}
+
+.footer .partners a {
+  overflow: hidden;
+}
+
+.footer .partners a img {
+  -webkit-filter: invert(100%) grayscale(100%) invert(100%) saturate(0%);
+          filter: invert(100%) grayscale(100%) invert(100%) saturate(0%);
+  height: 5em;
+  -webkit-transition: .2s linear box-shadow;
+  transition: .2s linear box-shadow;
+}
+
+.footer .partners a img:hover {
+  -webkit-box-shadow: 0 0 10px #ffffff;
+          box-shadow: 0 0 10px #ffffff;
+}
+
+.footer address {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-backdrop-filter: blur(5px) brightness(80%);
+          backdrop-filter: blur(5px) brightness(80%);
+  background: #e5e5e5e0;
+  position: absolute;
+  width: 50vw;
+}
+
+.footer address a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #343A40;
+  font-style: normal;
+  margin: .45rem 0;
+  position: relative;
+  -webkit-transition: .15s linear transform;
+  transition: .15s linear transform;
+  width: 100%;
+}
+
+.footer address a i {
+  font-size: 2.1em;
+  display: block;
+}
+
+.footer address a p {
+  font-size: 1.75em;
+}
+
+.footer address a:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.footer .me {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background: #343A40;
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+}
+
+.footer .me a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #e5e5e5;
+  font-size: 1.75rem;
+  height: 2.45rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav {
+    background: #343A40;
+    display: block;
+    height: 2.75em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+  .nav__button {
+    border: none;
+    outline: none;
+    background: none;
+    color: #e5e5e5;
+  }
+  .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    top: 2.75em;
+    width: 100vw;
+    height: calc(100vh - 2.8rem);
+    left: -100%;
+    position: fixed;
+    -webkit-transition: .2s linear left;
+    transition: .2s linear left;
+  }
+  .menu__item {
+    max-height: 4em;
+    margin: 0;
+    width: 100%;
+  }
+  .menu__item--link {
+    font-size: 1.2em;
+  }
+  .header {
+    height: 90vh;
+  }
+  .header__wrapper--heading {
+    font-size: 2.2em;
+  }
+  .header__wrapper--address {
+    border-top: none;
+    border-left: none;
+    height: 6em;
+    width: 100vw;
+  }
+  .header__wrapper--address section i {
+    font-size: 1.1em;
+  }
+  .header__wrapper--address section:hover {
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+  }
+  .main--price {
+    height: auto;
+  }
+  .main--price--heading {
+    font-size: 2.1em;
+  }
+  .main--price--wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    height: auto;
+  }
+  .main--price--wrapper--text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .main--price--wrapper--text p {
+    font-size: 1em;
+    padding: 0 0.2em;
+  }
+  .main--price--wrapper-img {
+    display: none;
+  }
+  .main--offer--heading {
+    font-size: 2.1em;
+  }
+  .main--offer--wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    height: auto;
+  }
+  .main--offer--wrapper--text p {
+    font-size: 1em;
+  }
+  .main--offer--wrapper--text strong {
+    font-size: 1.05em;
+  }
+  .main--offer--wrapper--img {
+    display: none;
+  }
+  .main--gallery--heading {
+    font-size: 2.1em;
+  }
+  .main--gallery--wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    padding: 0.1em;
+    width: 90vw;
+  }
+  .footer {
+    min-height: 150vh;
+  }
+  .footer .partners {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .footer .partners a img {
+    height: 3.25em;
+  }
+  .footer address {
+    width: 100vw;
+  }
+  .footer address a {
+    width: 100%;
+  }
+  .footer address a i {
+    font-size: 1.45em;
+  }
+  .footer address a p {
+    font-size: 1.2em;
+  }
+  .footer .me a {
+    height: auto;
+  }
+}
+
+.menu_show {
+  left: 0;
+  -webkit-transition: .2s linear left;
+  transition: .2s linear left;
+}
+/*# sourceMappingURL=main.css.map */

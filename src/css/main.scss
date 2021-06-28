@@ -1,0 +1,533 @@
+// IMPORTS
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// VARIABLES
+    // COLORS
+        $black:#000;
+        $blue-celadon:#457B9D;
+        $blue-oxford:#14213d;
+        $blue-powder:#a8dadc;
+        $blue-prussian:#1D3557;
+        $gunmetal:#343A40;
+        $honeydew:#F1FAEE;
+        $orange-web:#fca311;
+        $red-imperial:#E63946;
+        $platinum:#e5e5e5;
+        $white:#ffffff;
+    // GRADIENTS
+        @mixin gradient-aqua{background-image: linear-gradient(to right top, #1cd5d5, #75def6, #b6e6ff, #e5f0ff, #ffffff);}
+        @mixin gradient-ocean{background-image: linear-gradient(to right top, #0c2223, #04282f, #002e3d, #05324b, #1d3557);}
+        @mixin gradient-road{background-image: linear-gradient(to right top, #373f37, #303630, #292e29, #222623, #1c1e1c);}
+        @mixin gradient-sweets{background-image: linear-gradient(to right top, #bc00ff, #f800c0, #ff007f, #ff0044, #f60000);}
+        @mixin gradient-white{background-image: linear-gradient(to right top, #f4f6f6, #f7f8f9, #fafafb, #fcfdfd, #ffffff);}
+    // FONTS
+        @mixin Montserrat{font-family: 'Montserrat', sans-serif;}
+    // INPUT, BACKGROUND
+        @mixin BackgroundImage{background-attachment:fixed;background-size:cover;background-position:center;background-repeat:no-repeat;}
+        @mixin InputReset{border:none;outline:none;background: none;}
+    // POSITION
+        @mixin Center{left:50%;top:50%;transform:translate(-50%,-50%);}
+        @mixin CenterX{left:50%;transform:translateX(-50%);}
+        @mixin CenterY{top:50%;transform:translateY(-50%);}
+        @mixin Flex{display:flex;align-items:center;justify-content:center;text-align:center;}
+        @mixin FlexAround{@include Flex();justify-content: space-around;}
+        @mixin FlexColumn{flex-direction:column;flex-wrap: wrap}
+        @mixin FlexEvenly{@include Flex();justify-content: space-evenly;}
+        @mixin FlexBetween{@include Flex();justify-content: space-between;}
+
+//PAGE
+
+    //GLOBAL
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        *::before,*::after{
+            content: '';
+            position: absolute;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        li,ol,ul{
+            list-style: none;
+        }
+
+        body{
+            @include BackgroundImage();
+            @include Montserrat();
+            background: $gunmetal;    
+            max-width:100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+
+        }
+
+        // NAWIGACJA
+        .nav{
+            @include Flex();
+            position: fixed;
+            background: #000;
+            top: 0;
+            left: 0;
+            height: 3em;
+            width: 100vw;
+
+            &__button{
+                background: lime;
+                width: 2.7em;
+                height: 2.7em;
+
+                &--icon{
+                    @include Flex();
+                    width: 100%;
+                    height: 100%;
+                    font-size: 2em;
+                }
+            }
+            display: none;
+        }
+
+        .menu{
+            @include FlexAround();
+            background: $gunmetal;
+            height:2.75rem;
+            position:sticky;
+            top: 0;
+            z-index: 1;
+            &__item{
+                height: 100%;
+                margin: 0 0.75em;
+                position: relative;
+                width:calc(100% / 6);
+                &--link{
+                    @include Flex();
+                    color: $platinum;
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    height: 100%;
+                    transition:.3s linear transform,.3s linear opacity;
+                    width: 100%;
+                }
+            }
+            &__item:hover  *{
+                opacity: 0.85;
+                transform: scale(.95);
+            }
+            &__item::before{
+                @include CenterX();
+                background: $platinum;
+                bottom: .45em;
+                height: 0.1em;
+                transition:.2s ease-in-out width;
+                width:0%;
+            }
+            &__item:hover::before{
+                width: 60%;
+            }
+        }
+
+        // HEADER
+
+        .header{
+            @include BackgroundImage();
+            @include Flex();
+            background-image: url("../../../assets/img/ratusz-powiat.jpg");
+            border-bottom:.3em $platinum solid;
+            height:98vh;
+            max-height: auto;
+            &__wrapper{
+                backdrop-filter: brightness(75%);
+                height: 100%;
+                position: relative;
+                width: 100%;
+                &--heading{
+                    @include Center();
+                    color: $platinum;
+                    font-size: 4.2em;
+                    font-style:italic;
+                    position: absolute;
+                    text-shadow:-12px 0px 15px $black;
+                    text-transform: uppercase;
+                }
+                &--address{
+                    @include FlexEvenly();
+                    background: $platinum;
+                    border-top:7px $platinum solid;
+                    border-left:7px $platinum solid;
+                    bottom: 0;
+                    color: $gunmetal;
+                    height: 8em;
+                    position: absolute;
+                    right: 0;
+                    width: 35em;
+                    section{
+                        @include Flex();
+                        @include FlexColumn();
+                        color: $gunmetal;
+                        height: 100%;
+                        transition:.2s linear transform,.2s linear font-weight;
+                        width:calc(100% / 2);
+                        i{
+                            color: $gunmetal;
+                            display: block;
+                            font-size: 1.4em;
+                            width: 100%;
+                        }
+                        span{
+                            color: $gunmetal;
+                            display: block;
+                        }
+                    }
+                    section:hover {
+                        font-weight: 600;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        // TREŚĆ STRONY
+
+        .main{
+            color: $platinum;
+            min-height:100vh;
+            margin: 1.5em 0;
+            overflow: hidden;
+            padding: 1.5em 0;
+            position: relative;
+            &--price{
+                height: auto;
+                min-height: 70vh;
+                position: relative;
+                &--heading{
+                    color: $gunmetal;
+                    background: $platinum;
+                    font-size: 3em;
+                    text-align: center;
+                }
+                &--wrapper{
+                    display: grid;
+                    grid-template-columns:1fr 2fr;
+                    height: 70vh;
+                    height: auto;
+                    padding: 0.5em;
+                    position: relative;
+                    width: 100%;
+                    &--text{
+                        @include Flex();
+                        @include FlexColumn();
+                        p{
+                            font-size: 1.1em;
+                            margin: .5em 0;
+                            padding:0 0.2em;
+                        }
+                    }
+                    &-img{
+                        @include BackgroundImage();
+                        background-image: url("../../../assets/img/taxi-maska.jpg");
+                    }
+                }
+            }
+            &--offer{
+                height: auto;
+                min-height: 70vh;
+                position: relative;
+                &--heading{
+                    color: $gunmetal;
+                    background: $platinum;
+                    font-size: 3em;
+                    text-align: center;
+                }
+                &--wrapper{
+                    display: grid;
+                    grid-template-columns:2fr 1fr;
+                    height: 70vh;
+                   height: auto;
+                    padding: 0.5em;
+                    position: relative;
+                    width: 100%;
+                    &--text{
+                        @include Flex();
+                        @include FlexColumn();
+                        p{
+                            font-size: 1.2em;
+                            margin: .5em 0;
+                            padding:0 0.2em;
+                        }
+                        li{
+                            margin: 0.5em 0;
+                        }
+                        strong{
+                            font-size: 1.4em;
+                            padding:0 0.3em;
+                        }
+                    }
+                    &--img{
+                        @include BackgroundImage();
+                        background-image: url("../../../assets/img/taxi-ulica.jpg");
+                    }
+                }
+            }
+            &--gallery{
+                height: auto;
+                min-height: 70vh;
+                &--heading{
+                    color: $gunmetal;
+                    background: $platinum;
+                    font-size: 3em;
+                    text-align: center;
+                }
+                &--wrapper{
+                    @include CenterX();
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    grid-gap: 0.5em;
+                    height: auto;
+                    margin: 0.5em 0;
+                    padding: 0.5em;
+                    position: relative;
+                    width: 70vw;
+                    &--figure{
+                        overflow: hidden;
+                        width: 100%;
+                        img{
+                            filter: opacity(.8) brightness(70%) grayscale(70%);
+                            transition:.2s linear filter,.3s ease-in-out transform;
+                            width: 100%;
+                            cursor: pointer;
+                        }
+                        img:hover{
+                            filter: opacity(1) brightness(110%) grayscale(0%);
+                            transform:scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+        .footer{
+            @include BackgroundImage();
+            background-image: url("../../../assets/img/ratusz-powiat.jpg");
+            min-height: 90vh;
+            position: relative;
+            .partners{
+                @include FlexEvenly();
+                background: $gunmetal;
+                padding: .45em 0;
+                a{
+                    overflow: hidden;
+                    img{
+                        filter: invert(100%) grayscale(100%) invert(100%) saturate(0%);
+                        height: 5em; 
+                        transition:.2s linear box-shadow;
+                    }
+                    img:hover{
+                        box-shadow:0 0 10px $white;
+                    }
+                }
+            }
+            address{
+                @include Center();
+                @include Flex();
+                @include FlexColumn();
+                backdrop-filter: blur(5px) brightness(80%);
+                background: #e5e5e5e0;
+                position: absolute;
+                width: 50vw;
+                a{
+                    @include Flex();
+                    @include FlexColumn();
+                    color: $gunmetal;
+                    font-style: normal;
+                    margin: .45rem 0;
+                    position: relative;
+                    transition:.15s linear transform;
+                    width: 100%;
+                    i{
+                        font-size: 2.1em;
+                        display: block;
+                    }
+                    p{
+                        font-size: 1.75em;
+                    }
+                }
+                a:hover{
+                    transform: scale(1.05)
+                }
+            }
+            .me{
+                @include Flex();
+                background: $gunmetal;
+                bottom: 0;
+                position: absolute;
+                width: 100vw;
+                a{
+                    @include Flex();
+                    color: $platinum;
+                    font-size: 1.75rem;
+                    height: 2.45rem;
+                }
+            }
+        }
+
+    
+
+// DEVICES
+    @media only screen and (max-width:1000px){
+        .nav{
+            background:$gunmetal;
+            display: block;
+            height: 2.75em;
+            position: sticky;
+            top: 0;
+            z-index: 3;
+
+            &__button{
+                @include InputReset();
+                color: $platinum;
+            }
+        }
+        .menu{
+            @include Flex();
+            @include FlexColumn();
+            top:2.75em;
+            width: 100vw;
+            height: calc(100vh - 2.8rem);
+            left: -100%;
+            position:fixed;
+            transition: .2s linear left;
+            &__item{
+                max-height: 4em;
+                margin: 0;
+                width:100%;
+                &--link{
+                    font-size: 1.2em;
+                }
+            }
+        }
+        .header{
+            height: 90vh;
+            &__wrapper{
+                &--heading{
+                    font-size: 2.2em;
+                }
+                &--address{
+                    border-top:none;
+                    border-left:none;
+                    height: 6em;
+                    width: 100vw;
+                    section{
+                        i{
+                            font-size: 1.1em;
+                        }
+                    }
+                    section:hover {
+                        transform: scale(1.01);
+                    }
+                }
+            }
+        }
+        .main{
+            &--price{
+                height: auto;
+                &--heading{
+                    font-size: 2.1em;
+                }
+                &--wrapper{
+                    grid-template-columns:1fr;
+                    height:auto;
+                    &--text{
+                        @include Flex();
+                        @include FlexColumn();
+                        p{
+                            font-size: 1em;
+                            padding:0 0.2em;
+                        }
+                    }
+                    &-img{
+                        display: none;
+                    }
+                }
+            }
+            &--offer{
+                &--heading{
+                    font-size: 2.1em;
+                }
+                &--wrapper{
+                    grid-template-columns:1fr;
+                    height: auto;
+                    &--text{
+                        p{
+                            font-size: 1em;
+                        }
+                        strong{
+                            font-size: 1.05em;
+                        }
+                    }
+                    &--img{
+                        display: none;
+                    }
+                }
+            }
+            &--gallery{
+                &--heading{
+                    font-size: 2.1em;
+                }
+
+                &--wrapper{
+                    grid-template-columns: repeat(1,1fr);
+                    padding: 0.1em;
+                    width: 90vw;
+                }
+            }
+            
+        }
+        .footer{
+            min-height: 150vh;
+            .partners{
+                @include FlexColumn();
+                a{
+                    img{
+                        height:3.25em; 
+                    }
+                }
+            }
+            address{
+                width: 100vw;
+                a{
+                    width: 100%;
+                    i{
+                        font-size: 1.45em;
+                    }
+                    p{
+                        font-size: 1.2em;
+                    }
+
+                }
+            }
+            .me{
+                a{
+                    height:auto;
+                }
+            }
+        }
+
+    
+
+    }
+
+    @media only screen and (max-width:1100px){
+
+    }
+
+//ANOTHER CLASS
+
+
+.menu_show{
+    left: 0;
+    transition: .2s linear left;
+}
